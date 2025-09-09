@@ -173,25 +173,25 @@ ORGAN_DATA = {
     },
     "Intestino Grosso": {
         "description": "A irrigação é dividida: a **A. Mesentérica Superior** supre o ceco, apêndice, colo ascendente e 2/3 proximais do transverso. A **A. Mesentérica Inferior** supre o 1/3 distal do transverso, descendente, sigmoide e reto superior. A **Artéria Marginal do colo (Arco Justacólico)** conecta os dois sistemas.",
-        "arterial_dot": "digraph { rankdir=\"TB\"; node [shape=box, style=\"rounded,filled\", fillcolor=\"#fde0dd\"]; edge [color=\"#e63946\"]; subgraph cluster_sup { label = \"Da A. Mesentérica Superior\"; \"A. Ileocólica\" -> \"Ceco, Apêndice, Íleo Terminal\"; \"A. Cólica Direita\" -> \"Colo Ascendente\"; \"A. Cólica Média\" -> \"Colo Transverso (2/3 proximais)\"; } subgraph cluster_inf { label = \"Da A. Mesentérica Inferior\"; \"A. Cólica Esquerda\" -> \"Colo Transverso (1/3 distal), Colo Descendente\"; \"Aa. Sigmóideas\" -> \"Colo Sigmóide\"; } \"A. Cólica Média\" -> \"A. Cólica Esquerda\" [label=\"Artéria Marginal (Drummond)\", style=dashed, dir=both]; }",
-        "venous_dot": "digraph { rankdir=\"LR\"; node [shape=box, style=\"rounded,filled\", fillcolor=\"#d9ed92\"]; edge [color=\"#1a759f\"]; \"V. Porta Hepática\" [fillcolor=\"#1e6091\", fontcolor=white]; \"Colo Ascendente e Transverso Proximal\" -> \"V. Mesentérica Superior\" -> \"V. Porta Hepática\"; \"Colo Descendente e Sigmóide\" -> \"V. Mesentérica Inferior\" -> \"V. Esplênica\" -> \"V. Porta Hepática\"; }",
+        "arterial_dot": "digraph { rankdir=\"TB\"; node [shape=box, style=\"rounded,filled\", fillcolor=\"#fde0dd\"]; edge [color=\"#e63946\"]; subgraph cluster_sup { label = \"Da A. Mesentérica Superior\"; \"A. Ileocólica\" -> \"Ceco, Apêndice, Íleo Terminal\"; \"A. Cólica Direita\" -> \"Colo Ascendente\"; \"A. Cólica Média\" -> \"Colo Transverso (2/3 proximais)\"; } subgraph cluster_inf { label = \"Da A. Mesentérica Inferior\"; \"A. Cólica Esquerda\" -> \"Colo Transverso (1/3 distal), Colo Descendente\"; \"Aa. Sigmóideas\" -> \"Colo Sigmoide\"; } \"A. Cólica Média\" -> \"A. Cólica Esquerda\" [label=\"Artéria Marginal do Colo (Arco Justacólico)\", style=dashed, dir=both]; }",
+        "venous_dot": "digraph { rankdir=\"LR\"; node [shape=box, style=\"rounded,filled\", fillcolor=\"#d9ed92\"]; edge [color=\"#1a759f\"]; \"V. Porta Hepática\" [fillcolor=\"#1e6091\", fontcolor=white]; \"Colo Ascendente e Transverso Proximal\" -> \"V. Mesentérica Superior\" -> \"V. Porta Hepática\"; \"Colo Descendente e Sigmoide\" -> \"V. Mesentérica Inferior\" -> \"V. Esplênica\" -> \"V. Porta Hepática\"; }",
         "innervation_dot": "digraph { rankdir=\"TB\"; node [shape=box, style=\"rounded\"]; subgraph cluster_prox { label=\"Até 2/3 do Colo Transverso (Intestino Médio)\"; \"Parassimpático (N. Vago)\" [style=\"rounded,filled\", fillcolor=\"#cfe1f7\"]; \"Simpático (Nn. Esplâncnicos Torácicos)\" [style=\"rounded,filled\", fillcolor=\"#f7cfd6\"]; } subgraph cluster_dist { label=\"A partir de 1/3 do Colo Transverso (Intestino Posterior)\"; \"Parassimpático (Nn. Esplâncnicos Pélvicos S2-S4)\" [style=\"rounded,filled\", fillcolor=\"#cfe1f7\"]; \"Simpático (Nn. Esplâncnicos Lombares)\" [style=\"rounded,filled\", fillcolor=\"#f7cfd6\"]; } }",
         "clinical": {
             "description": """
             ### Correlação Clínica: Doença Diverticular e Hemorragia
-            **Divertículos** são pequenas herniações (bolsas) da mucosa através da camada muscular do cólon, formadas em pontos de fraqueza. Esses pontos de fraqueza correspondem exatamente aos locais onde os **vasos retos** (ramos terminais das artérias cólicas) penetram na parede do intestino para irrigá-lo.
+            **Divertículos** são pequenas herniações (bolsas) da mucosa através da camada muscular do colo, formadas em pontos de fraqueza. Esses pontos de fraqueza correspondem exatamente aos locais onde os **vasos retos** (ramos terminais das artérias cólicas) penetram na parede do intestino para irrigá-lo.
             Com o tempo, a parede de um divertículo pode erodir o vaso reto adjacente, causando uma **hemorragia digestiva baixa**, que se manifesta como um sangramento arterial, indolor e de grande volume. É uma das causas mais comuns de sangramento intestinal em idosos.
             """,
             "dot": """
             digraph {
                 rankdir=TB;
                 node [shape=box, style="rounded,filled"];
-                "Pontos de Fraqueza na Parede do Cólon" [label="Pontos de Fraqueza na Parede do Cólon\\n(onde os vasos retos penetram)", fillcolor="#f7cfd6"];
+                "Pontos de Fraqueza na Parede do Colo" [label="Pontos de Fraqueza na Parede do Colo\\n(onde os vasos retos penetram)", fillcolor="#f7cfd6"];
                 "Formação de Divertículos" [fillcolor="#fde0dd"];
                 "Erosão de Vaso Reto" [label="Erosão de Vaso Reto adjacente", fillcolor="#fde0dd"];
                 "Hemorragia Digestiva Baixa" [fillcolor="#e63946", fontcolor=white];
                 
-                "Pontos de Fraqueza na Parede do Cólon" -> "Formação de Divertículos" -> "Erosão de Vaso Reto" -> "Hemorragia Digestiva Baixa";
+                "Pontos de Fraqueza na Parede do Colo" -> "Formação de Divertículos" -> "Erosão de Vaso Reto" -> "Hemorragia Digestiva Baixa";
             }
             """
         }
@@ -345,8 +345,8 @@ def show_organ_explorer():
             digraph {
                 rankdir="LR"; node [shape=box, style="rounded,filled", fillcolor="#fde0dd"]; edge [color="#e63946"];
                 "Aorta Abdominal" -> "A. Mesentérica Inferior";
-                "A. Mesentérica Inferior" -> {"A. Cólica Esquerda", "Aa. Sigmóideas", "A. Retal Superior"};
-                "A. Cólica Esquerda" -> "Colo Descendente"; "Aa. Sigmóideas" -> "Colo Sigmóide"; "A. Retal Superior" -> "Reto";
+                "A. Mesentérica Inferior" -> {"A. Cólica Esquerda", "Aa. Sigmoideas", "A. Retal Superior"};
+                "A. Cólica Esquerda" -> "Colo Descendente"; "Aa. Sigmoideas" -> "Colo Sigmoide"; "A. Retal Superior" -> "Reto";
             }"""
             st.graphviz_chart(ami_dot)
         elif ORGAN_DATA[selected_organ]["arterial_dot"]:
