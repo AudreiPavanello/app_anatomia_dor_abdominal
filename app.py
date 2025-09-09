@@ -3,13 +3,9 @@ import streamlit as st
 # --- CONFIGURAÇÃO DA PÁGINA ---
 st.set_page_config(
     page_title="Anatomia do Abdome",
-    page_icon="🧠",
     layout="wide",
     initial_sidebar_state="expanded",
 )
-
-# --- DADOS DOS ÓRGÃOS (FLUXOGRAMAS E TEXTOS) ---
-# Os dados foram extraídos do PDF e expandidos com as correlações clínicas.
 
 ORGAN_DATA = {
     "Visão Geral": {
@@ -69,7 +65,7 @@ ORGAN_DATA = {
             ### Correlação Clínica: Hipertensão Portal
             Quando o fluxo sanguíneo através do fígado é obstruído (comumente por cirrose), a pressão na **veia porta** aumenta drasticamente. O sangue é forçado a encontrar rotas alternativas para retornar à circulação sistêmica através de **anastomoses portossistêmicas**. A dilatação dessas veias pode levar a condições graves:
             - **Varizes Esofágicas:** Conexão entre a veia gástrica esquerda (portal) e as veias esofágicas (sistêmicas). Sua ruptura causa hemorragia digestiva fatal.
-            - **Cabeça de Medusa (Caput Medusae):** Conexão entre as veias paraumbilicais (portal) e as veias epigástricas da parede abdominal (sistêmicas).
+            - **Cabeça de Medusa :** Conexão entre as veias paraumbilicais (portal) e as veias epigástricas da parede abdominal (sistêmicas).
             - **Hemorroidas Internas:** Conexão entre a veia retal superior (portal) e as veias retais média/inferior (sistêmicas).
             """,
             "dot": """
@@ -176,7 +172,7 @@ ORGAN_DATA = {
         }
     },
     "Intestino Grosso": {
-        "description": "A irrigação é dividida: a **A. Mesentérica Superior** supre o ceco, apêndice, colo ascendente e 2/3 proximais do transverso. A **A. Mesentérica Inferior** supre o 1/3 distal do transverso, descendente, sigmoide e reto superior. A **Artéria Marginal de Drummond** conecta os dois sistemas.",
+        "description": "A irrigação é dividida: a **A. Mesentérica Superior** supre o ceco, apêndice, colo ascendente e 2/3 proximais do transverso. A **A. Mesentérica Inferior** supre o 1/3 distal do transverso, descendente, sigmoide e reto superior. A **Artéria Marginal do colo (Arco Justacólico)** conecta os dois sistemas.",
         "arterial_dot": "digraph { rankdir=\"TB\"; node [shape=box, style=\"rounded,filled\", fillcolor=\"#fde0dd\"]; edge [color=\"#e63946\"]; subgraph cluster_sup { label = \"Da A. Mesentérica Superior\"; \"A. Ileocólica\" -> \"Ceco, Apêndice, Íleo Terminal\"; \"A. Cólica Direita\" -> \"Colo Ascendente\"; \"A. Cólica Média\" -> \"Colo Transverso (2/3 proximais)\"; } subgraph cluster_inf { label = \"Da A. Mesentérica Inferior\"; \"A. Cólica Esquerda\" -> \"Colo Transverso (1/3 distal), Colo Descendente\"; \"Aa. Sigmóideas\" -> \"Colo Sigmóide\"; } \"A. Cólica Média\" -> \"A. Cólica Esquerda\" [label=\"Artéria Marginal (Drummond)\", style=dashed, dir=both]; }",
         "venous_dot": "digraph { rankdir=\"LR\"; node [shape=box, style=\"rounded,filled\", fillcolor=\"#d9ed92\"]; edge [color=\"#1a759f\"]; \"V. Porta Hepática\" [fillcolor=\"#1e6091\", fontcolor=white]; \"Colo Ascendente e Transverso Proximal\" -> \"V. Mesentérica Superior\" -> \"V. Porta Hepática\"; \"Colo Descendente e Sigmóide\" -> \"V. Mesentérica Inferior\" -> \"V. Esplênica\" -> \"V. Porta Hepática\"; }",
         "innervation_dot": "digraph { rankdir=\"TB\"; node [shape=box, style=\"rounded\"]; subgraph cluster_prox { label=\"Até 2/3 do Colo Transverso (Intestino Médio)\"; \"Parassimpático (N. Vago)\" [style=\"rounded,filled\", fillcolor=\"#cfe1f7\"]; \"Simpático (Nn. Esplâncnicos Torácicos)\" [style=\"rounded,filled\", fillcolor=\"#f7cfd6\"]; } subgraph cluster_dist { label=\"A partir de 1/3 do Colo Transverso (Intestino Posterior)\"; \"Parassimpático (Nn. Esplâncnicos Pélvicos S2-S4)\" [style=\"rounded,filled\", fillcolor=\"#cfe1f7\"]; \"Simpático (Nn. Esplâncnicos Lombares)\" [style=\"rounded,filled\", fillcolor=\"#f7cfd6\"]; } }",
@@ -290,9 +286,9 @@ CLINICAL_QUIZ_QUESTIONS = [
     },
     {
         "question": "Um paciente é diagnosticado com uma oclusão lenta e progressiva da Artéria Mesentérica Inferior (AMI). Apesar disso, ele não apresenta sintomas de isquemia grave no colo descendente. Qual estrutura anatômica é a principal responsável por manter o fluxo sanguíneo nessa região?",
-        "options": ["Tronco Celíaco", "Anastomoses com as artérias ilíacas", "Vasos Retos do Íleo", "Artéria Marginal de Drummond"],
-        "answer": "Artéria Marginal de Drummond",
-        "explanation": "A Artéria Marginal (de Drummond) é uma arcada arterial contínua que conecta os ramos da Artéria Mesentérica Superior (via cólica média) e da Inferior (via cólica esquerda). Em oclusões lentas, ela fornece um fluxo colateral vital, prevenindo a isquemia."
+        "options": ["Tronco Celíaco", "Anastomoses com as artérias ilíacas", "Vasos Retos do Íleo", "Artéria Marginal do colo (Arco Justacólico)"],
+        "answer": "Artéria Marginal do colo (Arco Justacólico)",
+        "explanation": "A Artéria Marginal do colo (Arco Justacólico) é uma arcada arterial contínua que conecta os ramos da Artéria Mesentérica Superior (via cólica média) e da Inferior (via cólica esquerda). Em oclusões lentas, ela fornece um fluxo colateral vital, prevenindo a isquemia."
     },
     {
         "question": "A oclusão aguda da Artéria Mesentérica Superior é uma emergência vascular. Qual segmento do intestino grosso seria mais provavelmente poupado de isquemia severa neste caso?",
@@ -452,8 +448,8 @@ def run_quiz(quiz_type, questions):
 
 # --- INTERFACE PRINCIPAL ---
 
-st.title(" 🧠 App Interativo: Vascularização e Inervação do Abdome")
-st.markdown("Bem-vindo! Este aplicativo foi desenvolvido para auxiliar no estudo da anatomia abdominal com base no material de aula.")
+st.title(" Vascularização e Inervação do Abdome")
+st.markdown("Bem-vindo! Este aplicativo foi desenvolvido para auxiliar no estudo da vascularização e inervação abdominal.")
 st.markdown("Use o menu à esquerda para navegar entre a exploração dos órgãos e os quizzes.")
 
 st.sidebar.title("Menu de Navegação")
@@ -468,3 +464,7 @@ elif app_mode == "Quiz Rápido":
     run_quiz("Rápido", QUICK_QUIZ_QUESTIONS)
 elif app_mode == "Quiz Clínico":
     run_quiz("Clínico", CLINICAL_QUIZ_QUESTIONS)
+
+st.sidebar.markdown("---")
+st.sidebar.caption("Referência Bibliográfica:")
+st.sidebar.caption("MOORE, Keith L. Anatomia orientada para a clínica. 8. ed. Rio de Janeiro: Guanabara Koogan, 2019.")
